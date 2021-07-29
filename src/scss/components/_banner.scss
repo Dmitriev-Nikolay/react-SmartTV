@@ -1,0 +1,63 @@
+@import "/src/scss/variables";
+@import "/src/scss/libs/mixins";
+
+.banner {
+    background: $blue;
+    padding: 20px;
+    animation-name: fadeInRight;
+    animation-delay: 3s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    max-height: 300px;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 25px -5px rgba(34, 60, 80, 0.6);
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    &__title {
+        @include font-base(("Roboto", sans-serif), 16px, normal, 500, 19px, center);
+        text-transform: uppercase;
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        display: table-caption;
+        display: -ms-grid;
+        -ms-grid-columns: min-content;
+        user-select: none;
+    }
+
+    &__btn-get-offer {
+        @include font-base(("Roboto", sans-serif), 16px, normal, 500, 19px, center, $blue);
+        height: 52px;
+        width: 156px;
+        border: none;
+        padding: 16px;
+        background: $black;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 15%, 0);
+        transform: translate3d(0, 15%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
