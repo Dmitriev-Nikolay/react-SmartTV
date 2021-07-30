@@ -1,6 +1,18 @@
 @import "/src/scss/variables";
 
-@mixin font-base($family: ("Roboto", sans-serif), $size, $style, $weight, $height, $align, $color: $black, $margin: 0) {
+@mixin font-base(
+    $family: (
+        "Roboto",
+        sans-serif,
+    ),
+    $size,
+    $style,
+    $weight,
+    $height,
+    $align,
+    $color: $black,
+    $margin: 0
+) {
     font-family: $family;
     font-size: $size;
     font-style: $style;
@@ -9,4 +21,15 @@
     text-align: $align;
     color: $color;
     margin: $margin;
+}
+
+@mixin btn-hover {
+    background: $black;
+    color: $white;
+    transition-duration: 0.3s;
+}
+
+@mixin btn-active {
+    transform: translateY(4px);
+    transition-duration: 0.1s;
 }

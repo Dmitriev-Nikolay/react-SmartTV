@@ -1,0 +1,178 @@
+@import "/src/scss/variables";
+@import "/src/scss/libs/mixins";
+
+.order-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 72px 45px;
+    background: $blue;
+    box-shadow: 0px 0px 25px -5px rgba(34, 60, 80, 0.6);
+    max-width: 30%;
+    height: 100%;
+    animation-name: appearance-on-the-left;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+
+    &__mobile-input {
+        .order-title {
+            @include font-base(("Roboto", sans-serif), 26px, normal, 400, 30px, center, $black, 0 0 13px 0);
+        }
+
+        .mobile-input {
+            @include font-base(("Roboto", sans-serif), 32px, normal, 700, 38px, center, $black, 0 0 13px 0);
+            display: block;
+        }
+
+        p {
+            @include font-base(("Roboto", sans-serif), 14px, normal, 400, 16px, center, $black, 0 0 33px 0);
+        }
+    }
+
+    &__keyboard-input {
+        margin-bottom: 20px;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 88px;
+                height: 52px;
+                border: 2px solid $black;
+                margin: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    @include btn-hover;
+                }
+
+                &:active {
+                    @include btn-active;
+                }
+            }
+
+            .row {
+                display: flex;
+            }
+
+            .row-4 {
+                li:first-of-type {
+                    width: 63%;
+                }
+            }
+        }
+    }
+
+    &__personal-data {
+        @include font-base(("Roboto", sans-serif), 14px, normal, 400, 16px, center, $text-secondary, 0 0 13px 0);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        p {
+            max-width: 200px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .custom-checkbox {
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: 2px solid $black;
+            position: relative;
+            display: inline-block;
+        }
+
+        input[type="checkbox"]:checked + .custom-checkbox,
+        span.checked {
+            background-image: url("../../assets/svg/check.svg");
+            background-size: 100% 100%;
+        }
+    }
+
+    .confirm-number {
+        @include font-base(("Roboto", sans-serif), 16px, normal, 500, 19px, center, $text-secondary);
+        text-transform: uppercase;
+        width: 100%;
+        height: 52px;
+        background: none;
+        border: 2px solid rgba(86, 86, 86, 0.6);
+        cursor: pointer;
+
+        &.disabled {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        &:hover {
+            @include btn-hover;
+        }
+
+        &:active {
+            @include btn-active;
+        }
+    }
+
+    &__application-accepted {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            @include font-base(("Roboto", sans-serif), 32px, normal, 700, 38px, center, $black, 0 0 20px 0);
+            text-transform: uppercase;
+        }
+
+        p {
+            @include font-base(("Roboto", sans-serif), 14px, normal, 400, 16px, center);
+        }
+    }
+}
+
+.close-order {
+    @include font-base(("Roboto", sans-serif), 26px, normal, 400, 30px, center);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 88px;
+    height: 52px;
+    border: 2px solid $black;
+    margin: 5px;
+    cursor: pointer;
+    animation: none;
+    background: $white;
+    transition: 0.3s;
+    animation-name: appearance-on-the-left;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+
+    &:hover {
+        @include btn-hover;
+    }
+}
+
+@keyframes appearance-on-the-left {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(30%, 0, 0);
+        transform: translate3d(30%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}

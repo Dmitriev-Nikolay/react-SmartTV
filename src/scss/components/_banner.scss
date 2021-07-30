@@ -2,34 +2,27 @@
 @import "/src/scss/libs/mixins";
 
 .banner {
-    background: $blue;
-    padding: 20px;
-    animation-name: fadeInRight;
-    animation-delay: 3s;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    max-height: 300px;
-    max-width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-height: 300px;
+    max-width: 200px;
+    background: $blue;
+    padding: 20px;
+    animation-name: appearance-on-the-down;
+    animation-delay: 3s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
     box-shadow: 0px 0px 25px -5px rgba(34, 60, 80, 0.6);
     position: absolute;
     right: 20px;
     bottom: 20px;
 
     &__title {
-        @include font-base(("Roboto", sans-serif), 16px, normal, 500, 19px, center);
+        @include font-base(("Roboto", sans-serif), 16px, normal, 500, 24px, center);
         text-transform: uppercase;
-        width: min-intrinsic;
-        width: -webkit-min-content;
-        width: -moz-min-content;
-        width: min-content;
         display: table-caption;
-        display: -ms-grid;
-        -ms-grid-columns: min-content;
-        user-select: none;
     }
 
     &__btn-get-offer {
@@ -40,15 +33,16 @@
         padding: 16px;
         background: $black;
         cursor: pointer;
+        transition: all 0.5s ease;
 
         &:hover {
             transform: scale(1.1);
-            transition: 1s;
+            transition-duration: 0.5s;
         }
     }
 }
 
-@keyframes fadeInRight {
+@keyframes appearance-on-the-down {
     from {
         opacity: 0;
         -webkit-transform: translate3d(0, 15%, 0);

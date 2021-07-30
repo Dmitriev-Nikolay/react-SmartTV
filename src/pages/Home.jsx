@@ -9,7 +9,7 @@ const Home = () => {
         <div className="content">
             <div className="container">
                 {
-                    isVisibleBanner && <Banner setIsVisibleBanner={ setIsVisibleBanner }/>
+                    isVisibleBanner && <Banner setIsVisibleBanner={ setIsVisibleBanner } />
                 }
             </div>
         </div>
