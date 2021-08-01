@@ -1,23 +1,33 @@
 import React from 'react';
 import classNames from 'classnames';
+import NumberFormat from 'react-number-format';
 import { Link } from 'react-router-dom';
+
+import qr from '../assets/img/qr-info.jpg';
 
 const Order = () => {
     const [isSuccessSendForm, setIsSuccessSendForm] = React.useState(false);
     const [checkedPersonalData, setCheckedPersonalData] = React.useState(false);
     const [valuePhoneNumber, setValuePhoneNumber] = React.useState('');
+    const [errorPhoneInput, setErrorPhoneInput] = React.useState(false);
 
     const handleChangeCheckbox = (e) => {
         setCheckedPersonalData(e.target.checked);
     };
 
     const sendForm = () => {
-        setIsSuccessSendForm(true);
+        if (valuePhoneNumber.length < 10) {
+            setErrorPhoneInput(true);
+            setCheckedPersonalData(false);
+        } else {
+            setIsSuccessSendForm(true);
+        };
     };
 
     const phoneNumberInput = (e) => {
-        if (valuePhoneNumber.length < 11) {
+        if (valuePhoneNumber.length < 10) {
             setValuePhoneNumber(valuePhoneNumber + e.target.value);
+            setErrorPhoneInput(false);
         } else {
             return;
         };
@@ -27,6 +37,7 @@ const Order = () => {
         let copyValuePhoneNumber = valuePhoneNumber;
         copyValuePhoneNumber = copyValuePhoneNumber.substring(0, valuePhoneNumber.length - 1);
         setValuePhoneNumber(copyValuePhoneNumber);
+        setErrorPhoneInput(false);
     };
 
     return (
@@ -36,20 +47,21 @@ const Order = () => {
                     {
                         !isSuccessSendForm ?
                             <>
-                                <div className="order-block__mobile-input">
+                                <div className="order-block__mobile-input-block">
                                     <h2 className="order-title">Введите ваш номер мобильного телефона</h2>
-                                    {/* <span className="mobile-input">+7(___)___-__-__</span> */}
-                                    <span className="mobile-input">{ valuePhoneNumber }</span>
-                                    {/* <input
-                                        className="mobile-input"
-                                        type="phone"
-                                        title="(000) 000-00-00"
-                                        data-mask="+7 (000) 000-00-00"
-                                        value={valuePhoneNumber}
-                                        pattern="\\+7 ([0-9]{3}\) [0-9]{3}[\-][0-9]{2}[\-][0-9]{2}"
-                                        placeholder={"+7(___)___-__-__"}
-                                        onChange={phoneNumberInput}
-                                    /> */}
+                                    <NumberFormat 
+                                        type="text" 
+                                        className={ classNames({
+                                            "mobile-input": !errorPhoneInput,
+                                            "mobile-input error": errorPhoneInput,
+                                        })
+                                        } 
+                                        format="+7 (###) ###-##-##" 
+                                        value={ valuePhoneNumber } 
+                                        mask="_" 
+                                        allowEmptyFormatting 
+                                        autoFocus
+                                    />
                                     <p>и с Вами свяжется наш менеждер для дальнейшей консультации</p>
                                 </div>
                                 <div className="order-block__keyboard-input">
@@ -75,11 +87,16 @@ const Order = () => {
                                         </div>
                                     </ul>
                                 </div>
-                                <label className="order-block__personal-data" htmlFor="personal">
-                                    <input onChange={ handleChangeCheckbox } type="checkbox" id="personal" />
-                                    <span className="custom-checkbox"></span>
-                                    <p>Согласие на обработку персональных данных</p>
-                                </label>
+                                {
+                                    errorPhoneInput ?
+                                        <p className="error-info">Неверно введён номер</p>
+                                        :
+                                        <label className="order-block__personal-data" htmlFor="personal">
+                                            <input onChange={ handleChangeCheckbox } type="checkbox" id="personal" />
+                                            <span className="custom-checkbox"></span>
+                                            <p>Согласие на обработку персональных данных</p>
+                                        </label>
+                                }
                                 <button className={ classNames({
                                     "confirm-number disabled": !checkedPersonalData,
                                     "confirm-number": checkedPersonalData,
@@ -99,6 +116,10 @@ const Order = () => {
                 <Link to="/">
                     <button className="close-order">X</button>
                 </Link>
+                <div className="qr-info">
+                    <p>Сканируйте QR-код ДЛЯ ПОЛУЧЕНИЯ ДОПОЛНИТЕЛЬНОЙ ИНФОРМАЦИИ</p>
+                    <img src={ qr } alt="QR" width="110" height="110" />
+                </div>
             </div>
         </div>
     );

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import arrowDown from '../assets/svg/down-arrow.svg';
 
 const Banner = React.memo(({ setIsVisibleBanner }) => {
-
     const viewBanner = () => {
         setIsVisibleBanner(false);
     };

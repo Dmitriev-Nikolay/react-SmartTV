@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 72px 45px;
+    padding: 65px 45px;
     background: $blue;
     box-shadow: 0px 0px 25px -5px rgba(34, 60, 80, 0.6);
     max-width: 30%;
@@ -16,7 +16,9 @@
     animation-duration: 1s;
     animation-fill-mode: both;
 
-    &__mobile-input {
+    &__mobile-input-block {
+        margin-bottom: 30px;
+
         .order-title {
             @include font-base(("Roboto", sans-serif), 26px, normal, 400, 30px, center, $black, 0 0 13px 0);
         }
@@ -24,15 +26,24 @@
         .mobile-input {
             @include font-base(("Roboto", sans-serif), 32px, normal, 700, 38px, center, $black, 0 0 13px 0);
             display: block;
+            background: none;
+            border: none;
+            color: transparent;
+            text-shadow: 0 0 0 black;
+
+            &.error {
+                color: $red;
+            }
         }
 
         p {
-            @include font-base(("Roboto", sans-serif), 14px, normal, 400, 16px, center, $black, 0 0 33px 0);
+            @include font-base(("Roboto", sans-serif), 14px, normal, 400, 16px, center, $black);
+            padding: 0 30px;
         }
     }
 
     &__keyboard-input {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
 
         ul {
             display: flex;
@@ -71,7 +82,7 @@
     }
 
     &__personal-data {
-        @include font-base(("Roboto", sans-serif), 14px, normal, 400, 16px, center, $text-secondary, 0 0 13px 0);
+        @include font-base(("Roboto", sans-serif), 14px, normal, 400, 16px, center, $text-secondary, 0 0 20px 0);
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -110,7 +121,7 @@
         cursor: pointer;
 
         &.disabled {
-            opacity: 0.6;
+            opacity: 0.4;
             pointer-events: none;
         }
 
@@ -140,6 +151,11 @@
     }
 }
 
+.error-info {
+    @include font-base(("Roboto", sans-serif), 16px, normal, 500, 40px, center, $red, 0 0 20px 0);
+    text-transform: uppercase;
+}
+
 .close-order {
     @include font-base(("Roboto", sans-serif), 26px, normal, 400, 30px, center);
     position: absolute;
@@ -148,7 +164,6 @@
     width: 88px;
     height: 52px;
     border: 2px solid $black;
-    margin: 5px;
     cursor: pointer;
     animation: none;
     background: $white;
@@ -160,6 +175,24 @@
 
     &:hover {
         @include btn-hover;
+    }
+}
+
+.qr-info {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 300px;
+    animation-name: appearance-on-the-left;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+
+    p {
+        @include font-base(("Roboto", sans-serif), 16px, normal, 500, 19px, right, $white, 0 10px 0 0);
     }
 }
 
