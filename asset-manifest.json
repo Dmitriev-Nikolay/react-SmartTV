@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react-SmartTV/static/css/main.2c13c9bf.chunk.css",
-    "main.js": "/react-SmartTV/static/js/main.84b35389.chunk.js",
-    "main.js.map": "/react-SmartTV/static/js/main.84b35389.chunk.js.map",
+    "main.css": "/react-SmartTV/static/css/main.76b73f9b.chunk.css",
+    "main.js": "/react-SmartTV/static/js/main.e4d7667d.chunk.js",
+    "main.js.map": "/react-SmartTV/static/js/main.e4d7667d.chunk.js.map",
     "runtime-main.js": "/react-SmartTV/static/js/runtime-main.554ebf08.js",
     "runtime-main.js.map": "/react-SmartTV/static/js/runtime-main.554ebf08.js.map",
     "static/js/2.fbf50763.chunk.js": "/react-SmartTV/static/js/2.fbf50763.chunk.js",
     "static/js/2.fbf50763.chunk.js.map": "/react-SmartTV/static/js/2.fbf50763.chunk.js.map",
     "index.html": "/react-SmartTV/index.html",
-    "static/css/main.2c13c9bf.chunk.css.map": "/react-SmartTV/static/css/main.2c13c9bf.chunk.css.map",
+    "static/css/main.76b73f9b.chunk.css.map": "/react-SmartTV/static/css/main.76b73f9b.chunk.css.map",
     "static/js/2.fbf50763.chunk.js.LICENSE.txt": "/react-SmartTV/static/js/2.fbf50763.chunk.js.LICENSE.txt",
     "static/media/app.scss": "/react-SmartTV/static/media/tv-bg.e0dc13b5.jpg",
     "static/media/down-arrow.bf263fc4.svg": "/react-SmartTV/static/media/down-arrow.bf263fc4.svg",
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.554ebf08.js",
     "static/js/2.fbf50763.chunk.js",
-    "static/css/main.2c13c9bf.chunk.css",
-    "static/js/main.84b35389.chunk.js"
+    "static/css/main.76b73f9b.chunk.css",
+    "static/js/main.e4d7667d.chunk.js"
   ]
 }
