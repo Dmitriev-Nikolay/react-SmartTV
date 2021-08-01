@@ -114,7 +114,7 @@ const Order = () => {
                     }
                 </div>
                 <Link to="/">
-                    <button className="close-order">X</button>
+                    <button className="close-order">Х</button>
                 </Link>
                 <div className="qr-info">
                     <p>Сканируйте QR-код ДЛЯ ПОЛУЧЕНИЯ ДОПОЛНИТЕЛЬНОЙ ИНФОРМАЦИИ</p>

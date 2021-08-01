@@ -194,6 +194,15 @@
     p {
         @include font-base(("Roboto", sans-serif), 16px, normal, 500, 19px, right, $white, 0 10px 0 0);
     }
+
+    img {
+        transition: all 0.5s ease;
+
+        &:hover {
+            transform: scale(1.05);
+            transition-duration: 0.5s;
+        }
+    }
 }
 
 @keyframes appearance-on-the-left {
